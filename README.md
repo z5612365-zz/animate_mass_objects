@@ -2,7 +2,7 @@
 
 
 
-Create 2-dim Cube Matrix as you want, and make wave or drop effect on Matrix.
+Create 2-dim Cube Matrix, and make wave or drop effect on Matrix.
 
 
 
@@ -10,8 +10,10 @@ Create 2-dim Cube Matrix as you want, and make wave or drop effect on Matrix.
 
 
 Wave Effect
+
 ![Alt Text](resource/output.gif)
 
 
 Drop Effect
+
 ![Alt Text](resource/output2.gif)
