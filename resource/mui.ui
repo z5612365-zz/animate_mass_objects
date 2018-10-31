@@ -98,7 +98,7 @@
        </property>
        <widget class="QWidget" name="tab">
         <attribute name="title">
-         <string>Delay</string>
+         <string>Wave</string>
         </attribute>
         <widget class="QPushButton" name="pushButton_4">
          <property name="geometry">
@@ -110,7 +110,7 @@
           </rect>
          </property>
          <property name="text">
-          <string>Delay</string>
+          <string>Wave</string>
          </property>
         </widget>
        </widget>

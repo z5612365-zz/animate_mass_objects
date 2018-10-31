@@ -44,7 +44,7 @@ class CustomWindow(MUIWindow.MUIWindow):
 
         self.btn3.clicked.connect(self.PasteKeys)
 
-        self.btn4.clicked.connect(self.DelayKeys)
+        self.btn4.clicked.connect(self.Wave)
         self.btn5.clicked.connect(self.Drop)
 
 
@@ -74,15 +74,17 @@ class CustomWindow(MUIWindow.MUIWindow):
         for i in range(0, self.MC.GroupCubeD):
             print("Create Col: "+str(i))
             for j in range(0, self.MC.GroupCubeW):
-                cmds.polyCube(w=self.MC.CubeWeight, h=self.MC.CubeHeight, d=self.MC.CubeDepth, n="Cube" + str(i*self.MC.GroupCubeD+j))
+                cmds.polyCube(w=self.MC.CubeWeight, h=self.MC.CubeHeight, d=self.MC.CubeDepth, n="Cube" + str(i*self.MC.GroupCubeW+j))
                 cmds.move(j * (self.MC.CubeWeight + self.MC.space), 0, i * (self.MC.CubeDepth + self.MC.space))
 
 
         cubelist = []
         for i in range(0, self.MC.GroupCubeD):
             for j in range(0, self.MC.GroupCubeW):
-                cubelist.append("Cube" + str(i*self.MC.GroupCubeD+j))
-
+                cubelist.append("Cube" + str(i*self.MC.GroupCubeW+j))
+        print(self.MC.GroupCubeD)
+        print(self.MC.GroupCubeW)
+        print(cubelist)
         cmds.group(cubelist, n='GroupCube')
 
     def SetKeys(self):
@@ -101,16 +103,16 @@ class CustomWindow(MUIWindow.MUIWindow):
             for j in range(0, self.MC.GroupCubeW):
                 if i==0 and j==0:
                     continue
-                cmds.pasteKey( "Cube" + str(i*self.MC.GroupCubeD+j), attribute='translateY' )
+                cmds.pasteKey( "Cube" + str(i*self.MC.GroupCubeW+j), attribute='translateY' )
 
-    def DelayKeys(self):
+    def Wave(self):
 
         for i in range(0, self.MC.GroupCubeD):
 
             for j in range(0, self.MC.GroupCubeW):
                 if i == 0 :
                     continue
-                cmds.keyframe("Cube" + str(i*self.MC.GroupCubeD+j)+'.translateY', edit=True, iub=True, r=True, o="over", tc=self.delayFrame*i)
+                cmds.keyframe("Cube" + str(i*self.MC.GroupCubeW+j)+'.translateY', edit=True, iub=True, r=True, o="over", tc=self.delayFrame*i)
 
     def Drop(self):
 
